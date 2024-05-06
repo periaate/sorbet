@@ -1,0 +1,8 @@
+github.com/periaate/common v0.0.10 h1:iYnfhj2nLV1NnlbmdO6fkBKSosz5xrNlvBAgTKiroIA=
+github.com/periaate/common v0.0.10/go.mod h1:f4+34uuW9Z0Cp0L+fTSo0nXMAhybycC0MB4gubxFoAc=
+github.com/periaate/meminfo v0.0.1 h1:WQXYfVdJ0oiAFrWjgmLKvCSbO7vrbmvUsXVa2i5x++E=
+github.com/periaate/meminfo v0.0.1/go.mod h1:cLmU07l1gNXYWoi1gWXx7u8gxFPbBKT9tvbDSuV3BVs=
+golang.org/x/sys v0.19.0 h1:q5f1RH2jigJ1MoAWp2KTp3gm5zAGFUTarQZ5U386+4o=
+golang.org/x/sys v0.19.0/go.mod h1:/VUhepiaJMQUp4+oa/7Zr1D23ma6VTLIYjOOTFZPUcA=
+golang.org/x/term v0.19.0 h1:+ThwsDv+tYfnJFhF4L8jITxu1tdTWRTZpdsWgEgjL6Q=
+golang.org/x/term v0.19.0/go.mod h1:2CuTdWZ7KHSQwUzKva0cbMg6q2DMI3Mmxp+gKJbskEk=
