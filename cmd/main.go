@@ -4,36 +4,14 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"sorbet"
 	"strings"
-	"syscall"
 	"time"
-	"unsafe"
 
 	"github.com/periaate/common"
 	"github.com/periaate/meminfo"
 	"golang.org/x/term"
 )
-
-var (
-	user32                  = syscall.NewLazyDLL("user32.dll")
-	procGetForegroundWindow = user32.NewProc("GetForegroundWindow")
-	procGetWindowTextW      = user32.NewProc("GetWindowTextW")
-)
-
-func getForegroundWindow() syscall.Handle {
-	hwnd, _, _ := procGetForegroundWindow.Call()
-	return syscall.Handle(hwnd)
-}
-
-func getWindowText(hwnd syscall.Handle) string {
-	var buf [256]uint16
-	procGetWindowTextW.Call(
-		uintptr(hwnd),
-		uintptr(unsafe.Pointer(&buf[0])),
-		uintptr(len(buf)),
-	)
-	return syscall.UTF16ToString(buf[:])
-}
 
 var width int
 var sb = strings.Builder{}
@@ -86,8 +64,8 @@ func render() {
 	sb.WriteString(fmt.Sprintf("%s\n", pad(width, currentTime)))
 	sb.WriteString(pad(width, mem))
 
-	hwnd := getForegroundWindow()
-	title := getWindowText(hwnd)
+	title := sorbet.GetTitle()
+
 	animatedTitle := animateTitle(title, width, k)
 	sb.WriteString("\033[J")
 	sb.WriteString(fmt.Sprintf("\n%s", pad(width, animatedTitle)))
